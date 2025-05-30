@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Olympus: A Universal Task Router for Computer Vision Tasks.">
+  <meta name="keywords" content="Text-Driven Image Editing, AIGC">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Olympus: A Universal Task Router for Computer Vision Tasks</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+  
+    <style>
+        sub_title {
+            text-align: center;
+            display: block;
+            margin-top: -20px;
+            position: relative;
+            font-size: 30px; /* Adjust the font size as needed */
+            color: #0000FF;
+        }
+    </style>
+  
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div style = "top: 50px, bottom:-40px" class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            <img src="./static/images/olympus.png" 
+                 alt="Olympus Icon" 
+                 style="width: 70px; height: 70px; vertical-align: middle; margin-right: 0px;">
+            Olympus: A Universal Task Router for Computer Vision Tasks
+          </h1>
+          <sub_title>CVPR 2025 <strong style="color: red;">Highlight</strong></sub_title>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://yuanze-lin.me/">Yuanze Lin</a><sup>1</sup>&nbsp;&nbsp;</span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=hJrIyCwAAAAJ&hl=en">Yunsheng Li</a><sup>2</sup>&nbsp;&nbsp;</span>
+            <span class="author-block">
+              <a href="https://www.dongdongchen.bid/">Dongdong Chen</a><sup>2</sup>&nbsp;&nbsp;
+            </span>
+            <span class="author-block">
+              <a href="https://weijianxu.com/">Weijian Xu</a><sup>2</sup>&nbsp;&nbsp;
+            </span>
+            <span class="author-block">
+              <a href="https://www.ron-clark.com/">Ronald Clark</a><sup>1</sup>&nbsp;&nbsp;
+            </span>
+            <span class="author-block">
+              <a href="https://eng.ox.ac.uk/people/philip-torr/">Philip H. S. Torr</a><sup>1</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>University of Oxford   &nbsp;&nbsp;&nbsp;&nbsp;   </span>
+            <span class="author-block"><sup>2</sup>Microsoft  &nbsp;&nbsp;&nbsp;&nbsp;   </span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2412.09612"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2412.09612"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=N1xOdIrVvn4"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+<!--               <span class="link-block">
+                <a href="https://colab.research.google.com/drive/1mRWzNOlo_RR_zvrnHODgBoPAa59vGUdz#scrollTo=v_4gmzDOzN98"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-google"></i>
+                  </span>
+                  <span>Colab</span>
+                </a> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/yuanze-lin/Olympus"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+<!--               <span class="link-block">
+                <a href="https://huggingface.co/Yuanze/Olympus" class="external-link">
+                <img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-FFD21E" alt="Hugging Face Model">
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/Yuanze/Olympus" class="external-link">
+                <img src="https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Dataset-FFD21E" alt="Hugging Face Dataset">
+                </a>
+              </span> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+<section class="section">
+  <div style = "top:-80px;" class="container is-max-desktop">
+    <hr style="height:0.5px;border:none;color:#333;background-color:#333;">
+      <p>
+         Given the user prompts, a trainable MLLM can perform routing across a wide range of specified models. In this concept, MLLMs
+         can solve multimodal understanding tasks (e.g., VQA) with its inherited capacity, while MLLMs can allocate appropriate specialized models
+         to address multimodal generative and classic vision tasks (e.g., image generation and depth estimation), then aggregate the results and deliver
+         a response to the user.
+      </p>
+    <div class="column is-full">
+            <img style="width:100%;" src="./static/images/overview.png"
+                 class="img"
+                 alt=""/>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div style = "top:-110px;" class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We introduce Olympus, a new approach that transforms Multimodal Large Language Models (MLLMs) into a unified framework capable of handling a wide array of computer
+            vision tasks. Utilizing a controller MLLM, Olympus delegates over 20 specialized tasks across images, videos, and 3D 
+            objects to dedicated modules. This instruction-based routing enables complex workflows through chained actions
+            without the need for training heavy generative models. Olympus easily integrates with existing MLLMs, expanding their
+            capabilities with comparable performance. Experimental results demonstrate that Olympus achieves an average routing
+            accuracy of 94.75% across 20 tasks and precision of 91.82% in chained action scenarios, showcasing its effectiveness
+          </p>
+        </div>
+        </div>
+     </div>
+  </div>
+</section>
+  
+<section class="section">
+  <div style = "top:-110px;" class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Method</h2>
+        <div class="content has-text-justified">
+          <div class="column is-full">
+            <img style="width:100%;" src="./static/images/framework.png"
+                 class="img"
+                 alt=""/>
+           <div class="content has-text-justified">
+           <p>
+           <b>The Framework of Olympus.</b> It can solve those tasks like VQA through the inherited capacities of MLLM directly. For other tasks,
+          e.g., image editing, Olympus can generate the response, which consists of task-specific routing tokens and refined prompts, they are then
+          used to schedule specialist models for addressing diverse user requests.
+           </p>
+        </div>
+     </div>
+  </div>
+ </div>
+    </div>
+  </div>
+</section>
+  
+
+<section class="section">
+  <div style="top:-110px;" class="container is-max-desktop">
+    <!-- Video -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Video</h2>
+        <div class="content has-text-justified">
+          <iframe
+            src="https://www.youtube.com/embed/N1xOdIrVvn4"
+            allowfullscreen
+            frameborder="0"
+            scrolling="yes"
+            style="display:block; width:100%; height:50vh;">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  
+  <section class="section" style="position: relative; top:-110px; text-align: center;">
+  <h2 class="title is-3">Dataset Statistic</h2>
+  <img src="./static/images/dataset.png"
+       style="width: 60%; height: auto; max-width: none; margin-left:25px;"
+       alt="Dataset Image"/>
+</section>
+  
+  
+  <section class="section">
+  <div style = "top:-90px;" class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Versatile Capabilities</h2>
+          <div class="column is-full">
+            <img src="./static/images/tasks.png"
+                 class="img"
+                 alt=""/>
+            <div class="content has-text-justified">
+           <p>
+           Olympus addresses a broad spectrum of vision tasks across images, videos, and even 3D content, in fact, it can cover over 20 different tasks.
+           </p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+  
+<section class="section">
+  <div style="top:-90px;" class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Multimodal Understanding Performance</h2>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column">
+        <img src="./static/images/results1.png"
+             class="img"
+             style="display: block; margin: 0 auto; width: 100%; height: auto;"
+             alt="Multimodal Understanding Performance"/>
+      </div>
+    </div>
+    <div class="columns is-centered" style="margin-top: -35px;">
+      <div class="column is-full">
+        <div class="content has-text-centered">
+          <p style="margin-top: 5px;"><b>Multimodal evaluation across 11 distinct benchmarks.</b></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div style="top:-90px;" class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Task Routing Performance</h2>
+      </div>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-full">
+        <img src="./static/images/results2.png"
+             class="img"
+             style="width: 70%; height: auto; display: block; margin: 0 auto;"
+             alt=""/>
+        <div class="content has-text-centered" style="margin-top: -0px;">
+          <p><b>Evaluation results on OlympusBench under the single-task setting.</b></p>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-centered" style="margin-top: 30px;">
+      <div class="column is-full">
+        <img src="./static/images/results3.png"
+             class="img"
+             style="width: 70%; height: auto; display: block; margin: 0 auto;"
+             alt=""/>
+        <div class="content has-text-centered" style="margin-top: -0px;">
+          <p><b>Evaluation results on OlympusBench under the chain-of-action setting.</b></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
+<section class="section">
+  <div style = "top:-90px;" class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Diverse Applications</h2>
+          <div class="column is-full">
+            <img src="./static/images/applications.png"
+                 class="img"
+                 alt=""/>
+          </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div style = "top:-100px;"  class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">More Results</h2>
+          <div class="column is-full">
+            <img src="./static/images/application2.png"
+                 class="img"
+                 alt=""/>
+            
+<!--             <img style="width:98.7%;margin-left:8px;" src="./static/images/application3.png"
+                 class="img"
+                 alt=""/> -->
+          </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div style = "top:-100px;bottom:-150px"  class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-three-quarters">
+        <h2 class="title is-3">Human Evaluation</h2>
+          <div class="column is-three-quarters">
+            <img style="margin-left:95px;" src="./static/images/human_evaluation.png"
+                 class="img"
+                 alt=""/>
+          </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div style = "top:-80px;" class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{lin2024olympus,
+  title={Olympus: A Universal Task Router for Computer Vision Tasks},
+  author={Lin, Yuanze and Li, Yunsheng and Chen, Dongdong and Xu, Weijian and Clark, Ronald and Torr, Philip HS},
+  journal={arXiv preprint arXiv:2412.09612},
+  year={2024}
+}</code></pre>
+  </div>
+</section>
+  
+<footer style = "height:30px" class="footer">
+  <div style = "top:-20px;" class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+           We borrow the source code of this website from <a href="https://github.com/nerfies/nerfies.github.io">nerfies</a>, which is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+             
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
