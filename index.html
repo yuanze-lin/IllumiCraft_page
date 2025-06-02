@@ -150,13 +150,10 @@
   <div style = "top:-80px;" class="container is-max-desktop">
     <hr style="height:0.5px;border:none;color:#333;background-color:#333;">
       <p>
-         Given the user prompts, a trainable MLLM can perform routing across a wide range of specified models. In this concept, MLLMs
-         can solve multimodal understanding tasks (e.g., VQA) with its inherited capacity, while MLLMs can allocate appropriate specialized models
-         to address multimodal generative and classic vision tasks (e.g., image generation and depth estimation), then aggregate the results and deliver
-         a response to the user.
+         IllumiCraft takes a prompt and an input video, then adjusts the scene’s lighting based on a static background image. It supports different lighting setups, including spotlight effects.
       </p>
     <div class="column is-full">
-            <img style="width:100%;" src="./static/images/overview.png"
+            <img style="width:100%;" src="./static/images/teaser.png"
                  class="img"
                  alt=""/>
     </div>
@@ -172,19 +169,25 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We introduce Olympus, a new approach that transforms Multimodal Large Language Models (MLLMs) into a unified framework capable of handling a wide array of computer
-            vision tasks. Utilizing a controller MLLM, Olympus delegates over 20 specialized tasks across images, videos, and 3D 
-            objects to dedicated modules. This instruction-based routing enables complex workflows through chained actions
-            without the need for training heavy generative models. Olympus easily integrates with existing MLLMs, expanding their
-            capabilities with comparable performance. Experimental results demonstrate that Olympus achieves an average routing
-            accuracy of 94.75% across 20 tasks and precision of 91.82% in chained action scenarios, showcasing its effectiveness
+            Although diffusion-based models can generate high-quality and high-resolution
+            video sequences from textual or image inputs, they lack explicit integration of geometric 
+            cues when controlling scene lighting and visual appearance across frames.
+            To address this limitation, we propose IllumiCraft, an end-to-end diffusion framework 
+            accepting three complementary inputs: (1) high-dynamic-range (HDR) video
+            maps for detailed lighting control; (2) synthetically relit frames with randomized
+            illumination changes (optionally paired with a static background reference image)
+            to provide appearance cues; and (3) 3D point tracks that capture precise 3D geometry information. 
+            By integrating the lighting, appearance, and geometry cues  within a unified diffusion architecture, 
+            IllumiCraft generates temporally coherent videos aligned with user-defined prompts. It supports 
+            background-conditioned and text-conditioned video relighting and provides better fidelity than existing
+            controllable video generation methods.
           </p>
         </div>
         </div>
      </div>
   </div>
 </section>
-  
+
 <section class="section">
   <div style = "top:-110px;" class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
@@ -197,9 +200,9 @@
                  alt=""/>
            <div class="content has-text-justified">
            <p>
-           <b>The Framework of Olympus.</b> It can solve those tasks like VQA through the inherited capacities of MLLM directly. For other tasks,
-          e.g., image editing, Olympus can generate the response, which consists of task-specific routing tokens and refined prompts, they are then
-          used to schedule specialist models for addressing diverse user requests.
+           <b>The Framework of IllumiCraft</b> It uses HDR maps, relit foreground video, 3D tracking, and an optional background image to jointly model 
+             illumination, appearance, and geometry, then generates videos from an illumination-aware text prompt. The figure shows an example with 3 illumination
+             tokens; HDR maps, background images, and 3D tracking videos are all optional during training.
            </p>
         </div>
      </div>
@@ -210,7 +213,7 @@
 </section>
   
 
-<section class="section">
+<!-- <section class="section">
   <div style="top:-110px;" class="container is-max-desktop">
     <!-- Video -->
     <div class="columns is-centered has-text-centered">
@@ -228,14 +231,7 @@
       </div>
     </div>
   </div>
-</section>
-  
-  <section class="section" style="position: relative; top:-110px; text-align: center;">
-  <h2 class="title is-3">Dataset Statistic</h2>
-  <img src="./static/images/dataset.png"
-       style="width: 60%; height: auto; max-width: none; margin-left:25px;"
-       alt="Dataset Image"/>
-</section>
+</section> -->
   
   
   <section class="section">
@@ -257,128 +253,40 @@
     </div>
   </div>
 </section>
-  
-<section class="section">
-  <div style="top:-90px;" class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full">
-        <h2 class="title is-3">Multimodal Understanding Performance</h2>
-      </div>
-    </div>
-    <div class="columns is-centered">
-      <div class="column">
-        <img src="./static/images/results1.png"
-             class="img"
-             style="display: block; margin: 0 auto; width: 100%; height: auto;"
-             alt="Multimodal Understanding Performance"/>
-      </div>
-    </div>
-    <div class="columns is-centered" style="margin-top: -35px;">
-      <div class="column is-full">
-        <div class="content has-text-centered">
-          <p style="margin-top: 5px;"><b>Multimodal evaluation across 11 distinct benchmarks.</b></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
 
 <section class="section">
   <div style="top:-90px;" class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-full">
-        <h2 class="title is-3">Task Routing Performance</h2>
+        <h2 class="title is-3">Performance Comparison</h2>
       </div>
     </div>
     <div class="columns is-centered">
       <div class="column is-full">
-        <img src="./static/images/results2.png"
+        <img src="./static/images/comp1.png"
              class="img"
              style="width: 70%; height: auto; display: block; margin: 0 auto;"
              alt=""/>
         <div class="content has-text-centered" style="margin-top: -0px;">
-          <p><b>Evaluation results on OlympusBench under the single-task setting.</b></p>
+          <p><b>Quantitative comparison of text-conditioned video relighting with existing methods.</b></p>
         </div>
       </div>
     </div>
     <div class="columns is-centered" style="margin-top: 30px;">
       <div class="column is-full">
-        <img src="./static/images/results3.png"
+        <img src="./static/images/comp2.png"
              class="img"
              style="width: 70%; height: auto; display: block; margin: 0 auto;"
              alt=""/>
         <div class="content has-text-centered" style="margin-top: -0px;">
-          <p><b>Evaluation results on OlympusBench under the chain-of-action setting.</b></p>
+          <p><b>Quantitative comparison of background-conditioned video relighting with existing methods. ∗ denotes results evaluated with the first 16 frames.</b></p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-  
-<section class="section">
-  <div style = "top:-90px;" class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full">
-        <h2 class="title is-3">Diverse Applications</h2>
-          <div class="column is-full">
-            <img src="./static/images/applications.png"
-                 class="img"
-                 alt=""/>
-          </div>
-    </div>
-    </div>
-  </div>
-</section>
 
-<section class="section">
-  <div style = "top:-100px;"  class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full">
-        <h2 class="title is-3">More Results</h2>
-          <div class="column is-full">
-            <img src="./static/images/application2.png"
-                 class="img"
-                 alt=""/>
-            
-<!--             <img style="width:98.7%;margin-left:8px;" src="./static/images/application3.png"
-                 class="img"
-                 alt=""/> -->
-          </div>
-    </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div style = "top:-100px;bottom:-150px"  class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-three-quarters">
-        <h2 class="title is-3">Human Evaluation</h2>
-          <div class="column is-three-quarters">
-            <img style="margin-left:95px;" src="./static/images/human_evaluation.png"
-                 class="img"
-                 alt=""/>
-          </div>
-    </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="BibTeX">
-  <div style = "top:-80px;" class="container is-max-desktop content">
-    <h2 class="title">BibTeX</h2>
-    <pre><code>@article{lin2024olympus,
-  title={Olympus: A Universal Task Router for Computer Vision Tasks},
-  author={Lin, Yuanze and Li, Yunsheng and Chen, Dongdong and Xu, Weijian and Clark, Ronald and Torr, Philip HS},
-  journal={arXiv preprint arXiv:2412.09612},
-  year={2024}
-}</code></pre>
-  </div>
-</section>
-  
 <footer style = "height:30px" class="footer">
   <div style = "top:-20px;" class="container">
     <div class="columns is-centered">
