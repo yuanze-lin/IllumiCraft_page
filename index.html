@@ -159,9 +159,9 @@
       IllumiCraft takes a prompt and an input video, then adjusts the scene’s lighting based on a static background image. It supports different lighting setups, including spotlight effects.
     </p>
 
-<div>
-  <!-- First block (70% width) -->
-  <div style="width: 50%; margin: 5px 0;">
+<div style="display: flex; width: 100%; align-items: flex-start;">
+  <!-- Left block: 50% width -->
+  <div style="flex: 0 0 50%; box-sizing: border-box; padding-right: 10px;">
     <!-- First attachment -->
     <figure class="image" style="width: 100%; margin: 10px 0 -5px;">
       <img
@@ -180,8 +180,8 @@
     </figure>
   </div>
 
-  <!-- Second block (30% width) -->
-  <div style="width: 30%; margin: 5px 0;">
+  <!-- Right block: 30% width -->
+  <div style="flex: 0 0 30%; box-sizing: border-box; padding-left: 10px;">
     <!-- First_2 attachment -->
     <figure class="image" style="width: 100%; margin: 10px 0 -5px;">
       <img
@@ -199,7 +199,11 @@
       >
     </figure>
   </div>
+
+  <!-- Optional spacer (20%), or leave it empty -->
+  <div style="flex: 0 0 20%;"></div>
 </div>
+
   
   </div>
 </section>
