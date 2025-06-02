@@ -8,9 +8,15 @@ section {
 }
 
 .column {
-  float: left;
-  width: 33.33%;
-  padding: 5px;
+  /* make each column sit side by side */
+  flex: 0 0 auto;
+}
+
+/* ensure the parent uses flexbox */
+.container {
+  display: flex;
+  gap: 10px; /* optional spacing between gifs */
+  align-items: center; /* vertical centering */
 }
 
 /* Clearfix (clear floats) */
