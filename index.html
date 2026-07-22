@@ -159,6 +159,12 @@
       font-weight: 800 !important;
     }
 
+    /* the logo now uses a transparent-background PNG; a soft drop shadow keeps
+       it grounded on the twilight backdrop. */
+    .ilc-logo {
+      filter: drop-shadow(0 2px 4px rgba(60,50,120,0.28));
+    }
+
     /* gradient pill call-to-action buttons */
     .publication-links .button.is-dark {
       background: linear-gradient(90deg, #2a2350, #3a2b6b) !important;
@@ -248,8 +254,9 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">
-            <img src="./asset/IllumiCraft.ico" 
-                 alt="IllumiCraft Icon" 
+            <img src="./asset/IllumiCraft_transparent.png"
+                 alt="IllumiCraft Icon"
+                 class="ilc-logo"
                  style="width: 60px; height: 60px; vertical-align: middle; margin-right: 0px;">
             IllumiCraft: Unified Geometry and Illumination Diffusion for Controllable Video Generation
           </h1>
@@ -955,7 +962,7 @@
   </div>
 </section>
   
-<section class="section" id="comparison">
+<section class="section" id="comparison" style="padding-top: 0.5rem;">
   <div style="top:-90px;bottom:-10px;" class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-full">
@@ -968,7 +975,7 @@
              class="img"
              style="width: 100%; height: auto; display: block; margin: 0 auto;"
              alt=""/>
-        <div class="content has-text-centered" style="margin-top: -10px;">
+        <div class="content has-text-centered" style="margin-top: 14px;">
           <p><b>Visual results under the text-conditioned setting.</b></p>
         </div>
       </div>
@@ -979,7 +986,7 @@
              class="img"
              style="width: 100%; height: auto; display: block; margin: 0 auto;"
              alt=""/>
-        <div class="content has-text-centered" style="margin-top: -0px;">
+        <div class="content has-text-centered" style="margin-top: 14px;">
           <p><b>Visual results under the background-conditioned setting.</b></p>
         </div>
       </div>
