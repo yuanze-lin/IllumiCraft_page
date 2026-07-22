@@ -52,8 +52,153 @@
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+
+  <!-- ============ Visual polish layer (additive, non-destructive) ============ -->
+  <style>
+    :root {
+      --ilc-g1: #6452ff;   /* indigo */
+      --ilc-g2: #b15efc;   /* violet */
+      --ilc-g3: #ff5ea8;   /* pink   */
+      --ilc-g4: #22c1c3;   /* teal   */
+    }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+
+    /* animated aurora backdrop behind the whole page */
+    body {
+      position: relative;
+      background:
+        radial-gradient(900px 500px at 8% -8%, rgba(100,82,255,0.12), transparent 60%),
+        radial-gradient(900px 500px at 100% 4%, rgba(255,94,168,0.10), transparent 55%),
+        radial-gradient(1000px 600px at 50% 120%, rgba(34,193,195,0.10), transparent 60%),
+        #ffffff;
+    }
+
+    /* thin scroll-progress bar pinned to the very top */
+    #scroll-progress {
+      position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+      z-index: 1000;
+      background: linear-gradient(90deg, var(--ilc-g1), var(--ilc-g2), var(--ilc-g3), var(--ilc-g4));
+      background-size: 300% 100%;
+      animation: ilc-flow 6s linear infinite;
+      box-shadow: 0 0 10px rgba(100,82,255,0.5);
+    }
+
+    /* glassy sticky nav */
+    #ilc-nav {
+      position: sticky; top: 0; z-index: 999;
+      display: flex; justify-content: center; gap: 6px; flex-wrap: wrap;
+      padding: 10px 14px;
+      background: rgba(255,255,255,0.65);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+    #ilc-nav a {
+      font-family: 'Google Sans', sans-serif;
+      font-weight: 600; font-size: 0.9rem;
+      color: #33415c; text-decoration: none;
+      padding: 6px 14px; border-radius: 999px;
+      transition: all 0.22s ease;
+    }
+    #ilc-nav a:hover {
+      color: #fff;
+      background: linear-gradient(90deg, var(--ilc-g1), var(--ilc-g2));
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(100,82,255,0.28);
+    }
+
+    /* animated gradient hero title */
+    h1.publication-title {
+      background: linear-gradient(90deg, var(--ilc-g1), var(--ilc-g2), var(--ilc-g3), var(--ilc-g4));
+      background-size: 300% 100%;
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: ilc-flow 8s ease infinite;
+    }
+
+    sub_title {
+      background: linear-gradient(90deg, var(--ilc-g1), var(--ilc-g3));
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800 !important;
+    }
+
+    /* gradient pill call-to-action buttons */
+    .publication-links .button.is-dark {
+      background: linear-gradient(90deg, #2a2350, #3a2b6b) !important;
+      border: none !important;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.3s ease;
+    }
+    .publication-links .button.is-dark:hover {
+      background: linear-gradient(90deg, var(--ilc-g1), var(--ilc-g2)) !important;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(100,82,255,0.35);
+    }
+
+    /* gradient-accented section titles with an underline flourish */
+    h2.title.is-3 {
+      position: relative; display: inline-block;
+      padding-bottom: 10px;
+    }
+    h2.title.is-3::after {
+      content: ""; position: absolute; left: 50%; bottom: 0;
+      transform: translateX(-50%);
+      width: 66px; height: 4px; border-radius: 4px;
+      background: linear-gradient(90deg, var(--ilc-g1), var(--ilc-g3));
+    }
+
+    /* lift + glow on gallery figures and method/comparison images */
+    #results figure img,
+    #method .img,
+    #comparison .img,
+    #performance .img {
+      border-radius: 12px;
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+      will-change: transform;
+    }
+    #results figure img:hover,
+    #method .img:hover,
+    #comparison .img:hover,
+    #performance .img:hover {
+      transform: translateY(-4px) scale(1.012);
+      box-shadow: 0 16px 40px rgba(40,30,90,0.22);
+    }
+
+    /* frosted card wrapper for abstract + bibtex */
+    #abstract .content, #BibTeX pre {
+      background: rgba(255,255,255,0.55);
+      border: 1px solid rgba(0,0,0,0.05);
+      border-radius: 16px;
+      padding: 22px 26px;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 8px 30px rgba(40,30,90,0.06);
+    }
+    #BibTeX pre { background: rgba(20,18,40,0.92); color: #e7e3ff; }
+
+    /* on-scroll reveal */
+    .ilc-reveal { opacity: 0; transform: translateY(26px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .ilc-reveal.ilc-in { opacity: 1; transform: none; }
+
+    @keyframes ilc-flow { 0% { background-position: 0% 50%; } 100% { background-position: 300% 50%; } }
+
+    @media (max-width: 768px) {
+      #ilc-nav a { font-size: 0.8rem; padding: 5px 10px; }
+    }
+  </style>
 </head>
 <body>
+
+<div id="scroll-progress"></div>
+<nav id="ilc-nav">
+  <a href="#results">Results</a>
+  <a href="#abstract">Abstract</a>
+  <a href="#method">Method</a>
+  <a href="#video">Video</a>
+  <a href="#comparison">Comparison</a>
+  <a href="#performance">Performance</a>
+  <a href="#BibTeX">BibTeX</a>
+</nav>
 
 
 <section class="hero">
@@ -151,7 +296,7 @@
 </section>
 
   
-<section class="section">
+<section class="section" id="results">
   <div class="container is-max-desktop" style="position: relative; top: -80px;">
     <hr class="has-background-dark" style="height: 0.5px; border: none;">
     <p>
@@ -685,7 +830,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="abstract">
   <div style = "top:-110px;" class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
@@ -711,7 +856,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="method">
   <div style = "top:-110px;" class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-full">
@@ -749,7 +894,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="video">
   <div style="top:-110px;" class="container is-max-desktop">
     <!-- Video -->
     <div class="columns is-centered has-text-centered">
@@ -769,7 +914,7 @@
   </div>
 </section>
   
-<section class="section">
+<section class="section" id="comparison">
   <div style="top:-90px;bottom:-10px;" class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-full">
@@ -801,7 +946,7 @@
   </div>
 </section>
   
-<section class="section">
+<section class="section" id="performance">
   <div style="top:-90px;" class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-full">
@@ -859,6 +1004,36 @@
     </div>
   </div>
 </footer>
+
+<!-- ============ Visual polish layer: interactions ============ -->
+<script>
+  (function () {
+    // scroll progress bar
+    var bar = document.getElementById('scroll-progress');
+    function onScroll() {
+      var h = document.documentElement;
+      var scrolled = h.scrollTop || document.body.scrollTop;
+      var height = (h.scrollHeight - h.clientHeight) || 1;
+      bar.style.width = (scrolled / height * 100) + '%';
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // on-scroll reveal for each section
+    var targets = document.querySelectorAll('section.section');
+    targets.forEach(function (el) { el.classList.add('ilc-reveal'); });
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('ilc-in'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.08 });
+      targets.forEach(function (el) { io.observe(el); });
+    } else {
+      targets.forEach(function (el) { el.classList.add('ilc-in'); });
+    }
+  })();
+</script>
 
 </body>
 </html>
